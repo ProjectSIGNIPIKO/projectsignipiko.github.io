@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Project SIGNIPIKO</title>
+  <!-- Google Fonts matching Project SIGNIPIKO design system -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Orbitron:wght@500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  
+  <style>
+    :root {
+      /* Official Project SIGNIPIKO Color Palette */
+      --primary: #0F172A;
+      --secondary: #0EA5E9;
+      --secondary-hover: #0284C7;
+      --secondary-light: #38BDF8;
+      --secondary-tint: #E0F2FE;
+
+      --neutral-dark: #0F172A;
+      --neutral-slate: #1E293B;
+      --neutral-mid: #334155;
+      --neutral: #64748B;
+      --neutral-light: #94A3B8;
+      --neutral-border: #CBD5E1;
+      --neutral-soft: #E2E8F0;
+
+      --bg-page: #F1F5F9;
+      --surface: #FFFFFF;
+      --border: #CBD5E1;
+      --text-primary: #0F172A;
+      --text-secondary: #334155;
+      --text-muted: #64748B;
+
+      /* Typography Specification */
+      --font-header: 'Times New Roman', Times, 'Georgia', serif;
+      --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'Orbitron', 'Share Tech Mono', monospace;
+
+      /* Elevation & Shadows */
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+      --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 10px 28px rgba(15, 23, 42, 0.08);
+
+      /* SDG Colors */
+      --sdg-9: #FD6925;
+      --sdg-11: #FD9D24;
+      --sdg-12: #BF8B2E;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--bg-page);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- TOP NAVBAR WITH PROJECT SIGNIPIKO BRAND --- */
+    .top-navbar {
+      height: 76px;
+      background: linear-gradient(180deg, #D4EFFE 0%, #BAE6FD 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border-bottom: 2px solid #7DD3FC;
+      box-shadow: 0 2px 14px rgba(14, 165, 233, 0.16);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-logo-img {
+      height: 52px;
+      width: auto;
+      max-width: 240px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 5px rgba(15, 23, 42, 0.12));
+    }
+
+    /* --- AUTH/ABOUT ROAD VIEWPORT (REALISTIC ASPHALT + WHITE ROAD DASH LINES) --- */
+    .road-page-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      min-height: calc(100vh - 76px);
+      background: var(--bg-page);
+      position: relative;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .road-flank {
+      flex: 0 0 clamp(90px, 12vw, 170px);
+      display: flex;
+      position: relative;
+      background: #141922;
+      box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.6);
+    }
+
+    .road-shoulder {
+      width: 16px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #334155 0px,
+        #334155 16px,
+        #1e293b 16px,
+        #1e293b 32px
+      );
+      border-right: 2px solid #475569;
+    }
+
+    .road-right .road-shoulder {
+      border-right: none;
+      border-left: 2px solid #475569;
+    }
+
+    .road-lane {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      background: #19202a;
+      border-left: 2px solid rgba(255, 255, 255, 0.18);
+      border-right: 2px solid rgba(255, 255, 255, 0.18);
+      overflow: hidden;
+    }
+
+    /* Authentic White Highway Lane Dashes */
+    .road-dash-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      background: repeating-linear-gradient(
+        to bottom,
+        #ffffff 0px,
+        #ffffff 32px,
+        transparent 32px,
+        transparent 64px
+      );
+    }
+
+    .road-barrier {
+      width: 6px;
+      background: #0f172a;
+      border-left: 1px solid #334155;
+      border-right: 1px solid #334155;
+    }
+
+    /* --- CENTER CONTENT CONTAINER --- */
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 42px 28px 64px;
+      width: 100%;
+      flex: 1;
+      z-index: 2;
+    }
+
+    /* --- MAIN TITLE (CENTERED) --- */
+    .page-title {
+      font-family: var(--font-header);
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--neutral-dark);
+      text-align: center;
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    /* --- SECTION TITLE (CENTERED) --- */
+    .section-title {
+      font-family: var(--font-header);
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--neutral-dark);
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    /* --- CARD CONTAINER --- */
+    .content-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 40px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-md);
+    }
+
+    /* --- JUSTIFIED PROJECT NARRATIVE TEXT --- */
+    .narrative-text {
+      font-size: 15.5px;
+      line-height: 1.85;
+      color: #1E293B;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      margin-bottom: 20px;
+    }
+
+    .narrative-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .narrative-text strong {
+      color: #0F172A;
+      font-weight: 700;
+    }
+
+    /* --- SUSTAINABLE DEVELOPMENT GOALS (SDG) GRID --- */
+    .sdg-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .sdg-card.sdg-12 {
+      grid-column: 1 / span 2;
+      width: 100%;
+      max-width: calc(50% - 10px);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .sdg-grid {
+        grid-template-columns: 1fr;
+      }
+      .sdg-card.sdg-12 {
+        grid-column: auto;
+        max-width: 100%;
+      }
+    }
+
+    .sdg-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 22px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .sdg-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+    }
+
+    .sdg-card.sdg-9::before { background: var(--sdg-9); }
+    .sdg-card.sdg-11::before { background: var(--sdg-11); }
+    .sdg-card.sdg-12::before { background: var(--sdg-12); }
+
+    .sdg-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .sdg-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .sdg-badge-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 800;
+      color: #FFFFFF;
+      flex-shrink: 0;
+    }
+
+    .sdg-card.sdg-9 .sdg-badge-num { background: var(--sdg-9); }
+    .sdg-card.sdg-11 .sdg-badge-num { background: var(--sdg-11); }
+    .sdg-card.sdg-12 .sdg-badge-num { background: var(--sdg-12); }
+
+    .sdg-goal-title {
+      font-family: var(--font-header);
+      font-size: 16.5px;
+      font-weight: 700;
+      color: #0F172A;
+      line-height: 1.3;
+    }
+
+    .sdg-desc {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--neutral-mid);
+    }
+
+    /* --- MEMBERS GRID --- */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .member-item {
+      background: #F8FAFC;
+      border: 1px solid var(--neutral-border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .member-item:hover {
+      background: #FFFFFF;
+      border-color: #38BDF8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(14, 165, 233, 0.1);
+    }
+
+    .member-name {
+      font-family: var(--font-header);
+      font-size: 19px;
+      font-weight: 700;
+      color: #0F172A;
+      letter-spacing: 0.01em;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .road-flank {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-title { font-size: 30px; }
+      .content-card { padding: 24px 20px; }
+      .narrative-text { font-size: 14.5px; text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVBAR -->
+  <header class="top-navbar">
+    <img src="signipiko_logo.png" alt="Project SIGNIPIKO" class="brand-logo-img" onerror="this.onerror=null; this.src='signipikoback_end/public/signipiko_logo.png';" />
+  </header>
+
+  <!-- ROAD PAGE LAYOUT (TWO ROADS ON EACH SIDE) -->
+  <div class="road-page-layout">
+    <!-- Left Road Lane -->
+    <div class="road-flank road-left" aria-hidden="true">
+      <div class="road-shoulder"></div>
+      <div class="road-lane">
+        <div class="road-dash-line"></div>
+      </div>
+      <div class="road-barrier"></div>
+    </div>
+
+    <!-- MAIN CENTER CONTAINER -->
+    <main class="container">
+
+      <!-- ABOUT US (CENTERED) -->
+      <h1 class="page-title">About Us</h1>
+
+      <!-- PROJECT NARRATIVE (JUSTIFIED) -->
+      <section class="content-card">
+        <p class="narrative-text">
+          <strong>PROJECT SIGNIPIKO</strong> is a miniature model for an IoT-based predictive maintenance system designed for monitoring road anomalies and hazard conditions, aiming for real-time updates. The project aims to engineer alternative solutions for monitoring since traditional road monitoring relies on manual inspections, which are usually delayed, or optical cameras that are expensive and consume massive network bandwidth. PROJECT SIGNIPIKO resolves this by embedding low-cost piezoelectric sensors directly into the road surface.
+        </p>
+        <p class="narrative-text">
+          The piezo sensors capture the mechanical strain of passing vehicles and convert physical strain into voltage spikes that can be measured via electrical signals. Instead of transmitting large volumes of raw data into the cloud, the system uses edge computing through the ESP32 embedded controller board. The software performs calculations on the input wave voltages, using rate-of-change logic to identify whether the smooth low-frequency rolling is from normal vehicular activity or a high-frequency voltage spike due to contact between a tire and a pothole. In actual scenario implementation, when an anomaly in the signal is monitored, it will alert LGUs. This allows for shifting the manual inspection/patching to preventive and data-driven maintenance.
+        </p>
+      </section>
+
+      <!-- SUSTAINABLE DEVELOPMENT GOALS -->
+      <section class="content-card">
+        <h2 class="section-title">Sustainable Development Goals</h2>
+        <div class="sdg-grid">
+          <!-- GOAL 9 -->
+          <div class="sdg-card sdg-9">
+            <div class="sdg-header">
+              <div class="sdg-badge-num">9</div>
+              <h3 class="sdg-goal-title">GOAL 9: Industry, Innovation, and Infrastructure</h3>
+            </div>
+            <p class="sdg-desc">
+              By providing a low-cost method to monitor road degradation, this project helps build more resilient and reliable transport infrastructure.
+            </p>
+          </div>
+
+          <!-- GOAL 11 -->
+          <div class="sdg-card sdg-11">
+            <div class="sdg-header">
+              <div class="sdg-badge-num">11</div>
+              <h3 class="sdg-goal-title">GOAL 11: Sustainable Cities and Communities</h3>
+            </div>
+            <p class="sdg-desc">
+              Better traffic data in well-maintained roads leads to safer, more efficient urban environments, reducing accidents and congestion.
+            </p>
+          </div>
+
+          <!-- GOAL 12 -->
+          <div class="sdg-card sdg-12">
+            <div class="sdg-header">
+              <div class="sdg-badge-num">12</div>
+              <h3 class="sdg-goal-title">GOAL 12: Responsible Consumption and Production</h3>
+            </div>
+            <p class="sdg-desc">
+              Shifting from manual traditional testing, we use data-driven patch monitoring for preventive maintenance.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEMBERS -->
+      <section class="content-card">
+        <h2 class="section-title">Members:</h2>
+        <div class="members-grid">
+          <div class="member-item">
+            <div class="member-name">Rhaivex R. Lagrason</div>
+          </div>
+          <div class="member-item">
+            <div class="member-name">John Benedict S. Listangco</div>
+          </div>
+          <div class="member-item">
+            <div class="member-name">Mar Daniel I. Mercado</div>
+          </div>
+          <div class="member-item">
+            <div class="member-name">Juan Miguel Angelo G. Mirasol</div>
+          </div>
+          <div class="member-item">
+            <div class="member-name">Recson Avielle T. Rojo</div>
+          </div>
+          <div class="member-item">
+            <div class="member-name">Lee Shailan P. Tuangco</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Right Road Lane -->
+    <div class="road-flank road-right" aria-hidden="true">
+      <div class="road-barrier"></div>
+      <div class="road-lane">
+        <div class="road-dash-line"></div>
+      </div>
+      <div class="road-shoulder"></div>
+    </div>
+  </div>
+
+</body>
+</html>
